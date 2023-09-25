@@ -1,0 +1,4 @@
+[2023-09-25 21:24:24,741] 5 root - INFO - Loading Enviroment Variables ...
+[2023-09-25 21:24:25,236] 160 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[2023-09-25 21:24:25,542] 12 root - INFO - Reading Data From DataBase: aps, accessing Collection: sensor
+[2023-09-25 21:24:30,921] 14 root - INFO - Shape of the Dataset: (60000, 172)

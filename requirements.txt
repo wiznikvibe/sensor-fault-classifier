@@ -1,0 +1,100 @@
+asttokens
+backcall
+backports
+backports.functools_lru_cache
+blosc
+ca-certificates
+catboost
+colorama
+comm
+configparser
+contourpy
+cycler
+debugpy
+decorator
+dill
+dnspython
+executing
+fonttools
+imbalanced-learn
+imblearn
+importlib-metadata
+importlib-resources
+importlib_metadata
+ipykernel
+ipython
+jedi
+joblib
+jupyter_client
+jupyter_core
+kiwisolver
+libffi
+libsodium
+lightgbm
+matplotlib
+matplotlib-inline
+miceforest
+nest-asyncio
+numpy
+openssl
+packaging
+pandas
+parso
+pickleshare
+pillow
+pip
+platformdirs
+plotly
+prompt-toolkit
+prompt_toolkit
+psutil
+pure_eval
+pygments
+pymongo
+pyparsing
+python
+python-dateutil
+python-dotenv
+python-graphviz
+python_abi
+pytz
+pywin32
+pyzmq
+scikit-learn
+scipy
+seaborn
+setuptools
+six
+sqlite
+stack_data
+tenacity
+threadpoolctl
+tornado
+traitlets
+typing-extensions
+typing_extensions
+tzdata
+vc
+vs2015_runtime
+wcwidth
+wheel
+xgboost
+zeromq
+zipp
+Bottleneck @ file:///C:/Windows/Temp/abs_3198ca53-903d-42fd-87b4-03e6d03a8381yfwsuve8/croots/recipe/bottleneck_1657175565403/work
+joblib @ file:///C:/b/abs_1anqjntpan/croot/joblib_1685113317150/work
+mkl-fft @ file:///C:/b/abs_19i1y8ykas/croot/mkl_fft_1695058226480/work
+mkl-random @ file:///C:/b/abs_edwkj1_o69/croot/mkl_random_1695059866750/work
+mkl-service==2.4.0
+numexpr @ file:///C:/b/abs_afm0oewmmt/croot/numexpr_1683221839116/work
+numpy @ file:///C:/b/abs_f6napi3n6e/croot/numpy_and_numpy_base_1691091651337/work
+pandas @ file:///C:/miniconda3/conda-bld/pandas_1692299636855/work
+pymongo==3.12.0
+python-dateutil @ file:///tmp/build/80754af9/python-dateutil_1626374649649/work
+python-dotenv==1.0.0
+pytz @ file:///C:/b/abs_19q3ljkez4/croot/pytz_1695131651401/work
+scikit-learn @ file:///C:/b/abs_55olq_4gzc/croot/scikit-learn_1690978955123/work
+scipy==1.11.1
+six @ file:///tmp/build/80754af9/six_1644875935023/work
+threadpoolctl @ file:///Users/ktietz/demo/mc3/conda-bld/threadpoolctl_1629802263681/work
+tzdata @ file:///croot/python-tzdata_1690578112552/work
