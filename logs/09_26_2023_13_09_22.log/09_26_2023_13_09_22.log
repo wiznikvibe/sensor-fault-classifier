@@ -1,0 +1,3 @@
+[2023-09-26 13:28:22,238] 5 root - INFO - Loading Enviroment Variables ...
+[2023-09-26 13:28:22,722] 160 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[2023-09-26 13:28:23,973] 16 root - INFO - initiate_data_ingestion() missing 1 required positional argument: 'self'

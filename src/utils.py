@@ -14,7 +14,8 @@ def get_collection_dataframe(database_name:str, collection_name:str)->pd.DataFra
         logging.info(f"Shape of the Dataset: {df.shape}")
         if "_id" in df.columns:
             df.drop("_id", axis=1, inplace=True)
-        print(df.shape)
+        
+        return df 
         
         # print(df.head())
     except Exception as e:

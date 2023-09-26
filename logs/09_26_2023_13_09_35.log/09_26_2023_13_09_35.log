@@ -1,0 +1,7 @@
+[2023-09-26 13:32:35,735] 5 root - INFO - Loading Enviroment Variables ...
+[2023-09-26 13:32:36,219] 160 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[2023-09-26 13:32:37,411] 16 root - INFO - ********************Data Ingestion Loading********************
+[2023-09-26 13:32:37,411] 24 root - INFO - Initiate Data Ingestion, Exporting Data as a Dataframe...
+[2023-09-26 13:32:37,411] 12 root - INFO - Reading Data From DataBase: aps, accessing Collection: sensor
+[2023-09-26 13:32:42,895] 14 root - INFO - Shape of the Dataset: (60000, 172)
+[2023-09-26 13:32:43,853] 17 root - INFO - Error Occured in Python Script:[C:\Users\nikhi\sensor-fault-classifier\src\components\data_ingestion.py], LineNumber: [30], Error Message:['NoneType' object has no attribute 'replace']

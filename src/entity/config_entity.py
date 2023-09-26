@@ -3,7 +3,7 @@ from datetime import datetime
 from src.logger import logging
 from src.exception import CustomException
 
-FILE_NAME = "raw.csv"
+FILE_NAME = "raw_data.csv"
 TRAIN_FILE_NAME = "train.csv"
 TEST_FILE_NAME = "test.csv"
 
@@ -27,9 +27,16 @@ class DataIngestionConfig:
             self.collection_name = 'sensor'
             self.data_ingestion_dir = os.path.join(training_pipeline_config.artifact_dir, "data_ingestion")
             self.raw_data_dir = os.path.join(self.data_ingestion_dir,"raw_data", FILE_NAME)
-            self.train_data_dir = os.path.join(self.data_ingestion_dir,"raw_data", TRAIN_FILE_NAME)
-            self.test_data_dir = os.path.join(self.data_ingestion_dir,"raw_data", TEST_FILE_NAME)
+            self.train_data_dir = os.path.join(self.data_ingestion_dir,"dataset", TRAIN_FILE_NAME)
+            self.test_data_dir = os.path.join(self.data_ingestion_dir,"dataset", TEST_FILE_NAME)
             self.test_size = 0.2
         except Exception as e: 
             raise CustomException(e, sys)
+
+    def to_dict(self,)->dict:
+        try:
+            return self.__dict__
+        except Exception as e:
+            raise CustomException(e, sys)
+
 
