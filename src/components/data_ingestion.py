@@ -14,10 +14,11 @@ class DataIngestion:
     def __init__(self,data_ingestion_config: config_entity.DataIngestionConfig):
         try:
             logging.info(f"{'*'*20}Data Ingestion Loading{'*'*20}")
+            print(f"{'*'*20}Data Ingestion Loading{'*'*20}")
             self.data_ingestion_config = data_ingestion_config
         except Exception as e:
             raise CustomException(e,sys)
-        
+         
     
     def initiate_data_ingestion(self)->artifact_entity.DataIngestionArtifact:
         try:
@@ -26,7 +27,7 @@ class DataIngestion:
                 database_name=self.data_ingestion_config.database_name,
                 collection_name=self.data_ingestion_config.collection_name
             )
-            print(type(df))
+            # print(type(df))
             # df.replace(to_replace="na",value=np.NAN,inplace=True)
 
             logging.info("Save Data into Raw Data")

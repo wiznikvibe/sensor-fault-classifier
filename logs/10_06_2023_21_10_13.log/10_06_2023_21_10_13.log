@@ -1,0 +1,12 @@
+[2023-10-06 21:40:13,324] 5 root - INFO - Loading Enviroment Variables ...
+[2023-10-06 21:40:13,810] 160 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
+[2023-10-06 21:40:15,093] 16 root - INFO - ********************Data Ingestion Loading********************
+[2023-10-06 21:40:15,093] 25 root - INFO - Initiate Data Ingestion, Exporting Data as a Dataframe...
+[2023-10-06 21:40:15,093] 14 root - INFO - Reading Data From DataBase: aps, accessing Collection: sensor
+[2023-10-06 21:40:18,293] 16 root - INFO - Shape of the Dataset: (36188, 172)
+[2023-10-06 21:40:18,531] 33 root - INFO - Save Data into Raw Data
+[2023-10-06 21:40:18,534] 36 root - INFO - Raw Data Directory Initialised
+[2023-10-06 21:40:19,849] 40 root - INFO - >>>Data Segregation Process Initiated<<<
+[2023-10-06 21:40:20,049] 46 root - INFO - Save Training and Testing Datasets
+[2023-10-06 21:40:21,205] 57 root - INFO - Data Ingestion artifact: DataIngestionArtifact(raw_data_dir='C:\\Users\\nikhi\\sensor-fault-classifier\\artifact\\10062023_214015\\data_ingestion\\raw_data\\raw_data.csv', train_data_dir='C:\\Users\\nikhi\\sensor-fault-classifier\\artifact\\10062023_214015\\data_ingestion\\dataset\\train.csv', test_data_dir='C:\\Users\\nikhi\\sensor-fault-classifier\\artifact\\10062023_214015\\data_ingestion\\dataset\\test.csv')
+[2023-10-06 21:40:21,558] 22 root - INFO - __init__() missing 1 required positional argument: 'data_ingestion_artifact'

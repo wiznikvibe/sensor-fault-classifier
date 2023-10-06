@@ -1,9 +1,9 @@
 import pymongo
 import pandas as pd 
 import json 
-from src.mlproject.config import mongo_client
+from src.db_conn import mongo_client
 
-DATA_FILE_PATH="aps_failure_training_set.csv"
+DATA_FILE_PATH="aps_failure_training_set1.csv"
 DATABASE_NAME="aps"
 COLLECTION_NAME="sensor"
 

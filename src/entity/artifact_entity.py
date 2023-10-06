@@ -7,7 +7,8 @@ class DataIngestionArtifact:
     test_data_dir:str 
 
 @dataclass
-class DataValidationArtifact:...
+class DataValidationArtifact:
+    report_file_dir:str
 
 @dataclass
 class DataTransformationArtifact:...
@@ -17,3 +18,6 @@ class ModelTrainerArtifact:...
 
 @dataclass
 class ModelEvaluationArtifact:...
+
+@dataclass 
+class ModelPusherArtifact:...
