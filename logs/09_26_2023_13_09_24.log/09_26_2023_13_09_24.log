@@ -1,4 +1,0 @@
-[2023-09-26 13:30:24,749] 5 root - INFO - Loading Enviroment Variables ...
-[2023-09-26 13:30:25,238] 160 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
-[2023-09-26 13:30:26,490] 16 root - INFO - ********************Data Ingestion Loading********************
-[2023-09-26 13:30:26,490] 16 root - INFO - name 'data_ingestion_artifacts' is not defined
