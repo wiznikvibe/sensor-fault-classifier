@@ -22,13 +22,15 @@ class DataIngestion:
     
     def initiate_data_ingestion(self)->artifact_entity.DataIngestionArtifact:
         try:
+            # logging.info(f"{'='*20}Data Ingestion{'='*20}")
+            # print(f"{'='*20}Data Ingestion{'='*20}")
             logging.info("Initiate Data Ingestion, Exporting Data as a Dataframe...")
             df:pd.DataFrame = utils.get_collection_dataframe(
                 database_name=self.data_ingestion_config.database_name,
                 collection_name=self.data_ingestion_config.collection_name
             )
             # print(type(df))
-            # df.replace(to_replace="na",value=np.NAN,inplace=True)
+            df.replace(to_replace="na",value=np.NAN,inplace=True)
 
             logging.info("Save Data into Raw Data")
             raw_data_path = os.path.dirname(self.data_ingestion_config.raw_data_dir)
@@ -55,6 +57,7 @@ class DataIngestion:
             )
 
             logging.info(f"Data Ingestion artifact: {data_ingestion_artifacts}")
+            logging.info(f"{'*'*20}Exiting Data Ingestion Phase{'*'*20}")
             return data_ingestion_artifacts
 
 

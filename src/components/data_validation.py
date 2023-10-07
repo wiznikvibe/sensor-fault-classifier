@@ -14,6 +14,11 @@ class DataValidation:
     def __init__(self, data_validation_config:config_entity.DataValidationConfig,
         data_ingestion_artifact:artifact_entity.DataIngestionArtifact):
 
+        """
+        Data Validation process generates a report summarizing the findings of comparision between base dataframe and 
+        current dataframe. 
+        """
+
         logging.info(f"{'*'*20}Data Validation Loading{'*'*20}")
         print(f"{'*'*20}Data Validation Loading{'*'*20}")
         self.data_validation_config = data_validation_config
@@ -22,6 +27,13 @@ class DataValidation:
 
     
     def drop_missing_values_columns(self, df:pd.DataFrame, report_key: str)->Optional[pd.DataFrame]:
+        '''
+        Drop Columns With Missing Values Exceeding the Threshold parameter
+
+        df: DataFrame Input Variable 
+        threshold: Percentage Criteria to Drop Columns 
+        returns Pandas DataFrame 
+        '''
         try:
             threshold = self.data_validation_config.missing_values_threshold
             null_report = df.isnull().sum()
@@ -40,6 +52,10 @@ class DataValidation:
 
     
     def column_checker(self, base_df:pd.DataFrame, current_df:pd.DataFrame, report_key:str)->bool:
+        """
+        Compares the Base Dataframe with the Current DataFrame for Features and returns true/False.
+        If all the features are present in Current DataFrame returns True, Else returns False.
+        """
         try: 
             base_columns = base_df.columns 
             current_columns = current_df.columns 
@@ -57,6 +73,11 @@ class DataValidation:
 
     
     def data_drift(self, base_df:pd.DataFrame, current_df:pd.DataFrame, report_key:str):
+        """
+        Data Drift occurs when the statistical properties of the model changes which results in poor performance 
+        this can happen when the data used for the model building changes. This function returns the report regarding the Data Drift.
+        """
+        
         try: 
             drift_record = dict()
 
@@ -88,10 +109,12 @@ class DataValidation:
         try:
             logging.info(f"Reading the Base Dataset, Treating for Missing Values")
             
+            # Base DataFrame
             base_df = pd.read_csv(self.data_validation_config.base_file_dir)
             base_df.replace({'nan':np.NAN}, inplace=True)
             base_df = self.drop_missing_values_columns(df=base_df, report_key="missing_data_baseframe")
 
+            # Train and Test Split of the Data 
             train_df = pd.read_csv(self.data_ingestion_artifact.train_data_dir)
             test_df = pd.read_csv(self.data_ingestion_artifact.test_data_dir)
 
@@ -111,6 +134,7 @@ class DataValidation:
             write_yaml_file(file_path=self.data_validation_config.report_file_dir, data=self.validation_error)
 
             data_validation_artifact = artifact_entity.DataValidationArtifact(report_file_dir=self.data_validation_config.report_file_dir)
+            logging.info(f"{'*'*20}Exiting Data Validation{'*'*20}")
             return data_validation_artifact
         except Exception as e:
             raise CustomException(e, sys)

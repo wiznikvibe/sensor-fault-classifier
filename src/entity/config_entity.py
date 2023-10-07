@@ -6,6 +6,9 @@ from src.exception import CustomException
 FILE_NAME = "raw_data.csv"
 TRAIN_FILE_NAME = "train.csv"
 TEST_FILE_NAME = "test.csv"
+TRANSFORMER_OBJ_FILE_NAME = "transformer.pkl"
+TARGET_ENCODER_OBJ_FILE_NAME = "target_encoder.pkl"
+MODEL_FILE_NAME = 'model.pkl'
 
 class TrainingPipelineConfig:
     """
@@ -49,5 +52,18 @@ class DataValidationConfig:
         self.base_file_dir = os.path.join("aps_failure_training_set1.csv")
 
     
+class DataTransformationConfig:
+    def __init__(self, training_pipeline_config:TrainingPipelineConfig):
+        self.target_column = "class"
+        self.data_transformation_dir = os.path.join(training_pipeline_config.artifact_dir,"data_transformation")
+        self.transform_obj_dir = os.path.join(self.data_transformation_dir,'transformer', TRANSFORMER_OBJ_FILE_NAME)
+        self.transform_train_dir = os.path.join(self.data_transformation_dir,'transformer',TRAIN_FILE_NAME.replace('csv','npz'))
+        self.transform_test_dir = os.path.join(self.data_transformation_dir,'transformer',TEST_FILE_NAME.replace('csv','npz'))
+        self.target_encoder_dir = os.path.join(self.data_transformation_dir,'transformer',TARGET_ENCODER_OBJ_FILE_NAME)
 
 
+class ModelTrainerConfig:...
+
+class ModelEvaluationConfig:...
+
+class ModelPusherConfig:...

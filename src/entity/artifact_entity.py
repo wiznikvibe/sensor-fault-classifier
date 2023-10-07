@@ -11,7 +11,11 @@ class DataValidationArtifact:
     report_file_dir:str
 
 @dataclass
-class DataTransformationArtifact:...
+class DataTransformationArtifact:
+    transform_obj_dir: str
+    transform_train_dir: str
+    transform_test_dir:str
+    target_encoder_dir:str
 
 @dataclass
 class ModelTrainerArtifact:...
