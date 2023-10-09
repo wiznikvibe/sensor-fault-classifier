@@ -18,10 +18,15 @@ class DataTransformationArtifact:
     target_encoder_dir:str
 
 @dataclass
-class ModelTrainerArtifact:...
+class ModelTrainerArtifact:
+    model_path: str
+    f1_train_score: str 
+    f1_test_score: str 
 
 @dataclass
-class ModelEvaluationArtifact:...
+class ModelEvaluationArtifact:
+    is_model_accepted: bool 
+    improved_accuracy: float 
 
 @dataclass 
 class ModelPusherArtifact:...

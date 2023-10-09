@@ -1,7 +1,6 @@
 import os, sys
 import pandas as pd 
 import numpy as np 
-from typing import Optional
 from scipy.stats import ks_2samp
 from imblearn.combine import SMOTETomek
 from sklearn.pipeline import Pipeline
@@ -18,7 +17,7 @@ class DataTransformation:
 
     def __init__(self, data_transformation_config:config_entity.DataTransformationConfig, data_ingestion_artifact:artifact_entity.DataIngestionArtifact):
         print(f"{'='*20}Data Transformation Loading{'='*20}")
-        logging.info("Data Transformation Phase Initiated")
+        logging.info(f"{'='*20}Data Transformation Phase Initiated{'='*20}")
         self.data_transformation_config = data_transformation_config
         self.data_ingestion_artifact = data_ingestion_artifact
 
@@ -90,7 +89,7 @@ class DataTransformation:
                 transform_test_dir = self.data_transformation_config.transform_test_dir,
                 target_encoder_dir = self.data_transformation_config.target_encoder_dir
             )
-            logging.info("Exiting Data Transformation Phase")
+            logging.info(f"{'='*20}Exiting Data Transformation Phase{'='*20}")
             return data_transformation_artifact
         
         except Exception as e: 

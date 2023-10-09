@@ -1,3 +1,0 @@
-[2023-09-26 13:22:32,180] 5 root - INFO - Loading Enviroment Variables ...
-[2023-09-26 13:22:32,728] 160 numexpr.utils - INFO - NumExpr defaulting to 8 threads.
-[2023-09-26 13:22:36,376] 15 root - INFO - 'DataIngestionConfig' object has no attribute 'to_dict'
