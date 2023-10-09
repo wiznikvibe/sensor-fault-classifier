@@ -1,6 +1,6 @@
 import os,sys 
-from src.mlproject.logger import logging
-from src.mlproject.entity.config_entity import TRANSFORMER_OBJECT_FILE_NAME,MODEL_FILE_NAME,TARGET_ENCODER_OBJECT_FILE_NAME
+from src.logger import logging
+from src.entity.config_entity import TRANSFORMER_OBJ_FILE_NAME,TARGET_ENCODER_OBJ_FILE_NAME,MODEL_FILE_NAME
 from glob import glob
 from typing import Optional
 
@@ -48,7 +48,7 @@ class ModelResolver:
             latest_dir = self.get_latest_dir_path()
             if latest_dir is None:
                 raise Exception(f"Transformer is not available")
-            return os.path.join(latest_dir,self.transformer_dir_name,TRANSFORMER_OBJECT_FILE_NAME)
+            return os.path.join(latest_dir,self.transformer_dir_name,TRANSFORMER_OBJ_FILE_NAME)
         except Exception as e:
             raise e
 
@@ -58,7 +58,7 @@ class ModelResolver:
             latest_dir = self.get_latest_dir_path()
             if latest_dir is None:
                 raise Exception(f"Target encoder is not available")
-            return os.path.join(latest_dir,self.target_encoder_dir_name,TARGET_ENCODER_OBJECT_FILE_NAME)
+            return os.path.join(latest_dir,self.target_encoder_dir_name,TARGET_ENCODER_OBJ_FILE_NAME)
         except Exception as e:
             raise e
 
@@ -85,7 +85,7 @@ class ModelResolver:
     def get_latest_save_transformer_path(self):
         try:
             latest_dir = self.get_latest_save_dir_path()
-            return os.path.join(latest_dir,self.transformer_dir_name,TRANSFORMER_OBJECT_FILE_NAME)
+            return os.path.join(latest_dir,self.transformer_dir_name,TRANSFORMER_OBJ_FILE_NAME)
         except Exception as e:
             raise e
 
@@ -93,7 +93,7 @@ class ModelResolver:
     def get_latest_save_target_encoder_path(self):
         try:
             latest_dir = self.get_latest_save_dir_path()
-            return os.path.join(latest_dir,self.target_encoder_dir_name,TARGET_ENCODER_OBJECT_FILE_NAME)
+            return os.path.join(latest_dir,self.target_encoder_dir_name,TARGET_ENCODER_OBJ_FILE_NAME)
         except Exception as e:
             raise e
 
