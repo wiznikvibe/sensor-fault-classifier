@@ -1,8 +1,8 @@
-logs
-artifact
+logs/
+artifact/
 venv/
 .env
 aps_failure_training_set1.csv
-saved_models
-prediction
+saved_models/
+prediction/
 
