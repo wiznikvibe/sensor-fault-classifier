@@ -4,6 +4,7 @@ RUN mkdir /app
 COPY . /app/
 COPY --chown=node:node . ./
 WORKDIR /app/
+ADD requirements.txt /app/
 RUN pip3 install -r requirements.txt
 ENV AIRFLOW_HOME='/app/airflow'
 ENV AIRFLOW_CORE_DAGBAG_IMPORT_TIMEOUT=1000
