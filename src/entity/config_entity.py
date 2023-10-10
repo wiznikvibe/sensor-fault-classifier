@@ -49,6 +49,7 @@ class DataValidationConfig:
         self.data_validation_dir = os.path.join(training_pipeline_config.artifact_dir, "data_validation")
         self.report_file_dir = os.path.join(self.data_validation_dir, "report.yaml")
         self.missing_values_threshold: float = 0.2
+        self.target_column = 'class'
         self.base_file_dir = os.path.join("aps_failure_training_set1.csv")
 
     

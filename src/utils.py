@@ -7,6 +7,8 @@ import os, sys
 import yaml, dill 
 
 
+TARGET_COLUMN = 'class'
+
 def get_collection_dataframe(database_name:str, collection_name:str)->pd.DataFrame:
     """
     This function returns Collection from the database as dataframe
@@ -23,6 +25,15 @@ def get_collection_dataframe(database_name:str, collection_name:str)->pd.DataFra
         # print(df.head())
     except Exception as e:
         raise CustomException(e, sys)
+
+def convert_columns_float(df:pd.DataFrame,exclude_columns:list)->pd.DataFrame:
+    try:
+        for column in df.columns:
+            if column not in exclude_columns:
+                df[column]=df[column].astype('float')
+        return df
+    except Exception as e:
+        raise e
 
 def write_yaml_file(file_path, data:dict):
     try: 

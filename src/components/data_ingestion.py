@@ -3,6 +3,7 @@ from src import utils
 from src.entity import config_entity
 from src.entity import artifact_entity
 from src.exception import CustomException
+from src.logger import logging
 from sklearn.model_selection import train_test_split
 from src.logger import logging
 import pandas as pd 
@@ -13,8 +14,8 @@ class DataIngestion:
 
     def __init__(self,data_ingestion_config: config_entity.DataIngestionConfig):
         try:
-            logging.info(f"{'*'*20}Data Ingestion Loading{'*'*20}")
-            print(f"{'*'*20}Data Ingestion Loading{'*'*20}")
+            logging.info(f"{'='*20}Data Ingestion Loading{'='*20}")
+            print(f"{'='*20}Data Ingestion Loading{'='*20}")
             self.data_ingestion_config = data_ingestion_config
         except Exception as e:
             raise CustomException(e,sys)
@@ -40,7 +41,7 @@ class DataIngestion:
 
 
             logging.info(">>>Data Segregation Process Initiated<<<")
-            train_df, test_df = train_test_split(df,test_size=self.data_ingestion_config.test_size,random_state=42)
+            train_df, test_df = train_test_split(df,test_size=self.data_ingestion_config.test_size, random_state=10)
 
             dataset_dir = os.path.dirname(self.data_ingestion_config.train_data_dir)
             os.makedirs(dataset_dir, exist_ok=True)
@@ -57,7 +58,7 @@ class DataIngestion:
             )
 
             logging.info(f"Data Ingestion artifact: {data_ingestion_artifacts}")
-            logging.info(f"{'*'*20}Exiting Data Ingestion Phase{'*'*20}")
+            logging.info(f"{'='*20}Exiting Data Ingestion Phase{'='*20}")
             return data_ingestion_artifacts
 
 

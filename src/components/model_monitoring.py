@@ -27,8 +27,11 @@ class ModelEvaluation:
 
     def initiate_model_evaluation(self)-> artifact_entity.ModelEvaluationArtifact:
         try:
-            logging.info("Evaluation Inititated")
+            logging.info(f"{'='*20}Model Evaluation{'='*20}")
+            # print(f"{'='*20}Model Evaluation{'='*20}")
+            logging.info("We compare the training model against the saved model")
             latest_dir_path = self.model_resolver.get_latest_dir_path()
+            
             if latest_dir_path == None:
                 model_eval_artifact = artifact_entity.ModelEvaluationArtifact(is_model_accepted=True,
                 improved_accuracy=None)
@@ -49,10 +52,13 @@ class ModelEvaluation:
             current_transformer = load_object(file_dir=self.data_transformation_artifact.transform_obj_dir)
             current_model = load_object(file_dir=self.model_trainer_artifact.model_path)
             current_target_enc = load_object(file_dir=self.data_transformation_artifact.target_encoder_dir)
-
+            
             test_df = pd.read_csv(self.data_ingestion_artifact.test_data_dir)
             target_df = test_df[self.model_eval_config.target_column]
             y_true = target_encoder.transform(target_df)
+
+
+            
 
             logging.info("Accuracy Using Previously trained model")
             input_features_name = list(transformer.feature_names_in_)
@@ -60,10 +66,10 @@ class ModelEvaluation:
             y_pred = model.predict(input_arr)
             print(f"Prediction using previous model: {target_encoder.inverse_transform(y_pred[:5])}")
             previous_model_score = f1_score(y_true=y_true, y_pred=y_pred)
-            logging.info(f"Accuracy using previous trained model: {previous_model_score}")
+            logging.info(f"Accuracy using previous trained model: {previous_model_score}\n")
 
 
-             
+            logging.info("Accuracy Using Current Model")
             input_features_name = list(current_transformer.feature_names_in_)
             input_arr = current_transformer.transform(test_df[input_features_name])
             y_pred = current_model.predict(input_arr)
@@ -71,8 +77,8 @@ class ModelEvaluation:
 
             current_model_score = f1_score(y_true=y_true, y_pred=y_pred)
             logging.info(f"Accuracy using current trained model: {current_model_score}")
-            if current_model_score<=previous_model_score:
-                logging.info(f"Current trained model is not better than previous model")
+            if current_model_score <= previous_model_score:
+                # logging.info(f"Current trained model is not better than previous model")
                 raise Exception("Current trained model is not better than previous model")
 
             model_eval_artifact = artifact_entity.ModelEvaluationArtifact(is_model_accepted=True,
