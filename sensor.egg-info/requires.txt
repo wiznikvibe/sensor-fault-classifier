@@ -17,4 +17,3 @@ pandas
 pyYAML
 numpy
 apache-airflow
--e .

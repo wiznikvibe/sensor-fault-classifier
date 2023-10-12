@@ -1,26 +1,27 @@
-from setuptools import find_packages, setup
+from setuptools import find_packages,setup
+
 from typing import List
 
-def get_requirements(file_path:str)->List[str]:
-    """
-    This Function returns list of packages to be installed 
-    """
-    HYPEN_E_DOT = "-e ."
+REQUIREMENT_FILE_NAME = "requirements.txt"
+HYPHEN_E_DOT = "-e ."
 
-    with open(file_path) as file_obj:
-        requirement = file_obj.readlines()
-        requirements = [req.replace('\n','') for req in requirement]
-        if HYPEN_E_DOT in requirements:
-            requirements.remove(HYPEN_E_DOT)
+def get_requirements() ->List[str]:
     
-    return requirements
+    with open(REQUIREMENT_FILE_NAME) as requirement_file:
+        requirement_list = requirement_file.readlines()
+    requirement_list = [requirement_name.replace("\n", "") for requirement_name in requirement_list]
+    
+    if HYPHEN_E_DOT in requirement_list:
+        requirement_list.remove(HYPHEN_E_DOT)
+    return requirement_list
+
 
 
 setup(
-    name="sensor_fault_classifier",
-    version='0.0.1',
-    author='nikhil',
-    author_email='nikhilshetty439@gmail.com',
-    packages=find_packages(),
-    install_requires=get_requirements(requirements)
+    name = "sensor",
+    version = "0.0.1",
+    author = "nikhil",
+    author_email = "nikhilshetty439@gmail.com",
+    packages = find_packages(),
+    install_requires = get_requirements()
 )
